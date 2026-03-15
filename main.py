@@ -3,9 +3,11 @@
 
 import os
 import pathlib
+import sys
+import shutil
 
-destinydir = ''
-sourcedir = ''
+destinydir = sys.argv[1]
+
 extensions = {
         "image": [".jpg",".jpeg",".png",".gif"],
         "doc": [".pdf",".docx",".txt",".xlsx"],
@@ -13,26 +15,43 @@ extensions = {
         "audio": [".mp3",".wav"]
 }
 
-MAXDEPTH = 100
+MAXDEPTH = 10
+CURRENTDEPTH = 0
 
 def movefiles(path):
-    for file in listdir(path):
-        with os.scandir(path) as files:
-            for file in files:
-                if file.is_dir:
-                    movefiles(file)
-                elif file.is_file:
-                    pass
+    global CURRENTDEPTH
+    if CURRENTDEPTH > MAXDEPTH:
+        return
 
-def movetodirectory(file):
-    isAnRequiredFile = False
-    extfile = file[os.extsep:]
-    for ext in extensions.keys():
-        if extfile in ext:
-            isAnRequiredFile = True
-            break
-    if(isAnRequiredFile):
-        destDir = f"{destinydir}{os.sep}{}"
-        if(!pathlib.Path(destDir).exists):
-            
+    with os.scandir(path) as files:
+        for file in files:
+            if file.is_dir():
+                CURRENTDEPTH += 1 
+                movefiles(file.path)
+                CURRENTDEPTH -= 1
+            elif file.is_file():
+                movetodirectory(file.path)
+
+def movetodirectory(file_path):
+    file = pathlib.Path(file_path)
+
+    extfile = file.suffix.lower()
+    if not extfile:
+        return
     
+    category = None
+    for cat, exts in extensions.items():
+        if extfile in exts:
+            category = cat
+            break
+
+    if category:
+        destDir = pathlib.Path(f"{destinydir}/{category}")
+        destDir.mkdir(exist_ok = True)
+        
+        destFile = f"{destDir}/{file.name}"
+
+        # Moving the file
+        shutil.move(str(file),str(destFile))
+
+movefiles(destinydir)
