@@ -53,5 +53,6 @@ def movetodirectory(file_path):
 
         # Moving the file
         shutil.move(str(file),str(destFile))
+        print(f"{file} --> {destFile})
 
 movefiles(destinydir)
