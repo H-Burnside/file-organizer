@@ -68,4 +68,3 @@ This project is covered by the MIT LICENSE
 
 ## AUTHOR
 [![GitHub](https://img.shields.io/badge/GitHub-H--Burnside-blue?logo=github)](https://github.com/H-Burnside)
-GMAIL:  burnsidehenrry@gmail.com
