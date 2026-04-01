@@ -37,13 +37,41 @@ python main.py C:\Users\YourName\Downloads
 ## CONFIGURATION
 ```python
 extensions = {
-    "image": [".jpg", ".jpeg", ".png", ".gif"],
-    "doc": [".pdf", ".docx", ".txt", ".xlsx"],
-    "video": [".mp4", ".mov", ".avi", ".mkv"],
-    "audio": [".mp3", ".wav"],
-    # Add your own categories here
-    "zip": [".zip", ".rar", ".7z"],
-    "bin": [".exe", ".msi", ".app"]
+    "images": [
+        ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp", ".svg", ".ico"
+    ],
+    "documents": [
+        ".pdf", ".doc", ".docx", ".txt", ".rtf", ".odt",
+        ".xls", ".xlsx", ".ppt", ".pptx", ".csv"
+    ],
+    "video": [
+        ".mp4", ".mov", ".avi", ".mkv", ".flv", ".wmv", ".webm", ".m4v"
+    ],
+    "audio": [
+        ".mp3", ".wav", ".aac", ".flac", ".ogg", ".wma", ".m4a"
+    ],
+    "archives": [
+        ".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz"
+    ],
+    "executables": [
+        ".exe", ".msi", ".bat", ".sh", ".bin", ".app", ".run"
+    ],
+    "packages": [
+        ".deb", ".rpm", ".apk", ".snap", ".flatpak"
+    ],
+    "code": [
+        ".py", ".c", ".cpp", ".h", ".hpp", ".js", ".ts",
+        ".java", ".cs", ".html", ".css", ".json", ".xml", ".yaml", ".yml"
+    ],
+    "databases": [
+        ".db", ".sqlite", ".sql"
+    ],
+    "fonts": [
+        ".ttf", ".otf", ".woff", ".woff2"
+    ],
+    "disk_images": [
+        ".iso", ".img"
+    ]
 }
 ```
 
