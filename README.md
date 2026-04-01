@@ -51,11 +51,11 @@ extensions = {
 MAXDEPTH = 10   # MAX SEARCH DEPTH
 
 ## PROJECT STRUCTURE
-file-organizer/
-|
-|---main.py     # Main script
-|---README.md   # Documentation
-|---LICENSE     # Licence
+file-organizer/<br>
+|<br>
+|---main.py     # Main script<br>
+|---README.md   # Documentation<br>
+|---LICENSE     # Licence<br>
 
 ## DISCLAIMER
 Files with unknown or non-existent extension will not be moved by the script, for added security you can do a backup of your data before the action. Remember: the script **MOVE** files, it doesn't copy the files.
